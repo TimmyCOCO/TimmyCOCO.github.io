@@ -2,25 +2,86 @@
 <html lang="en" >
 
 <head>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"
-    <link rel="stylesheet" href="Page1.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="homepage.css" type="text/css">
     <meta charset="UTF-8">
     <title>Homepage</title>
+</head>
+
+<body>
+    <div class="title">
+        <p>Homepage</p>
+
+    </div>
+    <p id="date"></p>
+    <h2>content</h2>
+    <i class="fa fa-hand-o-right"></i>
+    <a href="project.html">Project</a>
+
+    <br><br>
+    <button onclick="myfunction()">Submit</button>
+    <br>
+    <button onclick="window.print()">print this page</button>
+    <hr>
+    <!--check Age-->
+    <input id="age" placeholder="Enter your age" required />
+    <button onclick="checkAge()">submit</button>
+    <p id="demo"></p>
+
+    <hr>
+    <img id="dice" src = "dicegame.jpg" width="200" height="200">
+    <button onclick="Roll()">Roll Dice</button>
+
+    <hr>
+
     <script>
-        function myfunction()
-        {
+        function Roll(){
+            var pic;
+            pic = Math.floor(Math.random()*6)+1;
+            switch (pic) {
+                case 1:
+                    pic = "dice1.png";
+                    break;
+                case 2:
+                    pic = "dice2.png";
+                    break;
+                case 3:
+                    pic = "dice3.png";
+                    break;
+                case 4:
+                    pic = "dice4.png";
+                    break;
+                case 5:
+                    pic = "dice5.png";
+                    break;
+                case 6:
+                    pic = "dice6.png";
+                    break;
+            }
+            document.getElementById("dice").src = pic
+        }
+
+        function myfunction() {
             alert("success")
         }
 
-    </script>
-</head>
+        //check Age
+        function checkAge() {
+            var age, msg;
+            age = Number(document.getElementById("age").value)
+            if(isNaN(age)) {
+                msg = "Input is not a number"
+            }
+            else{
+                msg=(age<18)? "too young":"old enough";
+            }
+            document.getElementById("demo").innerHTML=msg
+        }
 
-<body background="Homepage_background.jpg">
-    <h1 style=>Homepage</h1>
-    <h2>content</h2>
-    <i class="fa fa-hand-o-right"></i>
-    <a href="Page1.html">learning center</a>
-    <button onclick="myfunction()">Submit</button>
+        var date = Date()
+        document.getElementById("date").innerHTML= date
+
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,21 @@
+a {text-decoration: none}
+a:hover{color:red}
+
+body{
+    background-image: url("project_background.jpg");
+    background-size: cover;
+}
+
+div #task {
+    float:left;
+    width: 30%;
+}
+
+div #topology{
+    float:left;
+    width:6%;
+}
+
+#picture{
+    display: none;
+}

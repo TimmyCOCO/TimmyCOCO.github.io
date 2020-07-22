@@ -1,0 +1,12 @@
+.title{
+    text-align: center;
+}
+.title p{
+    font-size: 3vw;
+    font-weight: 600;
+}
+
+body{
+    background-image: url("Homepage_background.jpg");
+    background-size: cover;
+}
