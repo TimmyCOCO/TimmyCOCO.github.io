@@ -2,7 +2,7 @@ a {text-decoration: none}
 a:hover{color:red}
 
 body{
-    background-image: url("project_background.jpg");
+    background-image: url("picture/project_background.jpg");
     background-size: cover;
 }
 

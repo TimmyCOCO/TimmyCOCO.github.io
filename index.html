@@ -29,7 +29,7 @@
     <p id="demo"></p>
 
     <hr>
-    <img id="dice" src = "dicegame.jpg" width="200" height="200">
+    <img id="dice" src = "picture/dicegame.jpg" width="200" height="200">
     <button onclick="Roll()">Roll Dice</button>
 
     <hr>
@@ -40,22 +40,22 @@
             pic = Math.floor(Math.random()*6)+1;
             switch (pic) {
                 case 1:
-                    pic = "dice1.png";
+                    pic = "picture/dice1.png";
                     break;
                 case 2:
-                    pic = "dice2.png";
+                    pic = "picture/dice2.png";
                     break;
                 case 3:
-                    pic = "dice3.png";
+                    pic = "picture/dice3.png";
                     break;
                 case 4:
-                    pic = "dice4.png";
+                    pic = "picture/dice4.png";
                     break;
                 case 5:
-                    pic = "dice5.png";
+                    pic = "picture/dice5.png";
                     break;
                 case 6:
-                    pic = "dice6.png";
+                    pic = "picture/dice6.png";
                     break;
             }
             document.getElementById("dice").src = pic
