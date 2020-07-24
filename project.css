@@ -6,15 +6,17 @@ body{
     background-size: cover;
 }
 
+p#return{
+    display: block;
+    text-align: center;
+}
 
-
-
-div #task {
+div#task {
     float:left;
     width: 30%;
 }
 
-div #topology{
+div#topology{
     float:left;
     width:6%;
 }

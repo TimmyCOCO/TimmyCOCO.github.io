@@ -11,17 +11,17 @@
 <body>
 <h1>Project <button id="display_all"><b>+/-</b></button></h1>
     <hr>
-    <h2>Database System <button id="display_1"><b>+/-</b></button></h2>
-    <div id="intro1" style="display: none;">
-        <fieldset >
+    <h2 onmousemove="this.style.color='blue'" onmouseleave="this.style.color='black'">- Database System <button id="display_1"><b>+/-</b></button></h2>
+    <div id="intro_1" style="display: none;">
+        <fieldset>
             <h3>Introduction</h3>
             <p> A simple database management system using Python web application framework - FLASK, and MySQL </p>
             <a href="http://jayden.pythonanywhere.com/Homepage"  target="view_window">--> Project Link</a>
         </fieldset>
     </div>
 
-    <h2>System and Network Administration <button id="display_2"><b>+/-</b></button></h2>
-    <div id="intro2" style="display: none;">
+    <h2 onmousemove="this.style.color='blue'" onmouseleave="this.style.color='black'">- System and Network Administration <button id="display_2"><b>+/-</b></button></h2>
+    <div id="intro_2" style="display: none;">
         <fieldset>
             <h3>Introduction</h3>
             <p> Deploying a unified Active Directory environment that can
@@ -41,7 +41,7 @@
                 <p><b>System Version:</b> Windows Server 2016</p>
             </div>
             <div id="topology">
-                <button id="button" onmouseenter="pic()" onmouseleave="nopic()" >topology</button>
+                <button id="button" onmouseover="pic()" onmouseleave="nopic()" >topology</button>
             </div>
             <div >
                 <img id="picture" src="picture/topology.PNG" >
@@ -49,7 +49,9 @@
             <br>
         </fieldset>
     </div>
-
+<br>
+<hr>
+<p id="return"><a href="index.html">back to homepage</a></p>
 
 
 <!--Javascript -->
@@ -57,19 +59,19 @@
         //JQuery
         $(document).ready(function(){
             $("#display_all").click(function(){
-                $("#intro1,#intro2").toggle();
+                $("#intro_1,#intro_2").toggle();
             });
         });
 
         $(document).ready(function(){
             $("#display_1").click(function(){
-                $("#intro1").toggle()
+                $("#intro_1").toggle()
             });
         });
 
          $(document).ready(function(){
             $("#display_2").click(function(){
-                $("#intro2").toggle()
+                $("#intro_2").toggle()
             });
         });
 
