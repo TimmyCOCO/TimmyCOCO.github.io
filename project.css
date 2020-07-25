@@ -6,14 +6,9 @@ body{
     background-size: cover;
 }
 
-#title{
+#move{
     position: relative;
     margin-left: 5px;
-}
-
-p.return{
-    display: block;
-    text-align: center;
 }
 
 div#task {
@@ -30,3 +25,7 @@ div#topology{
     margin-left: 38%;
 }
 
+#return{
+    display: block;
+    text-align: center;
+}

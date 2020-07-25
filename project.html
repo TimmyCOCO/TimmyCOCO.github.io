@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1 id="title">Project <button id="display_all"><b>+/-</b></button></h1>
+    <h1 id="move">Project <button id="display_all"><b>+/-</b></button></h1>
 
     <hr>
 
@@ -62,8 +62,9 @@
     </div>
 
     <hr>
-    <p class="return"><a href="index.html">back to homepage</a></p>
+    <p id="return"><a href="index.html">back to homepage</a></p>
     <button style="float:right; margin-right:20px;" onclick="window.print()">print this page</button>
+
 
     <script>
         //all
@@ -72,7 +73,7 @@
                 $("#intro_1,#intro_2,#intro_3").slideToggle();
             });
             $("#display_all").click(function(){
-                $("#title").animate({left: '38%', fontSize:'40px'});
+                $("#move").animate({left: '38%', fontSize:'40px'});
             });
         });
 
