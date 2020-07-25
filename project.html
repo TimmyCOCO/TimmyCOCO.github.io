@@ -9,18 +9,19 @@
 
 </head>
 <body>
-<h1>Project <button id="display_all"><b>+/-</b></button></h1>
+    <h1>Project <button id="display_all"><b>+/-</b></button></h1>
     <hr>
-    <h2 onmousemove="this.style.color='blue'" onmouseleave="this.style.color='black'">- Database System <button id="display_1"><b>+/-</b></button></h2>
+
+    <h2 onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- Database System <button id="display_1"><b>+/-</b></button></h2>
     <div id="intro_1" style="display: none;">
         <fieldset>
-            <h3>Introduction</h3>
-            <p> A simple database management system using Python web application framework - FLASK, and MySQL </p>
-            <a href="http://jayden.pythonanywhere.com/Homepage"  target="view_window">--> Project Link</a>
+            <h3 >Introduction</h3>
+            <p> A simple database management system using python web application framework - Flask, and MySQL </p>
+            <a href="http://jayden.pythonanywhere.com/Homepage"  target="_blank"> --> Website Link</a>
         </fieldset>
     </div>
 
-    <h2 onmousemove="this.style.color='blue'" onmouseleave="this.style.color='black'">- System and Network Administration <button id="display_2"><b>+/-</b></button></h2>
+    <h2 onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- System and Network Administration <button id="display_2"><b>+/-</b></button></h2>
     <div id="intro_2" style="display: none;">
         <fieldset>
             <h3>Introduction</h3>
@@ -28,7 +29,7 @@
                 be used to control access to network resources while providing
                 various services.   </p>
             <div id="task">
-                <h4>TASKs: </h4>
+                <h4>TASKs </h4>
                 <ul>
                     <li>Basic server setup</li>
                     <li>Active directory forest and domain setup</li>
@@ -39,21 +40,30 @@
                     <li>Group policy setup</li>
                 </ul>
                 <p><b>System Version:</b> Windows Server 2016</p>
+                <p><b>Working Environment: </b>Cloud VMware</p>
             </div>
             <div id="topology">
-                <button id="button" onmouseover="pic()" onmouseleave="nopic()" >topology</button>
+                <button onmouseover="pic()" onmouseleave="no_pic()" >topology</button>
             </div>
             <div >
-                <img id="picture" src="picture/topology.PNG" >
+                <img id="picture" src="picture/topology.PNG" height="260" >
             </div>
             <br>
         </fieldset>
     </div>
-<br>
-<hr>
-<p id="return"><a href="index.html">back to homepage</a></p>
 
+    <h2 onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Robotics Program <button id="display_3"><b>+/-</b></button></h2>
+    <div id="intro_3" style="display: none;">
+        <fieldset>
+            <h3>Introduction</h3>
+            <p> A simple python program for Robot. The program can realize user's speech and respond with corresponding speech and Gif emotions.</p>
+            <a href="https://github.com/TimmyCOCO/Python_Robot" target="_blank" > --> Project File Link </a>
+        </fieldset>
+    </div>
 
+    <hr>
+    <p class="return"><a href="index.html">back to homepage</a></p>
+    
 <!--Javascript -->
     <script>
         //JQuery
@@ -69,16 +79,22 @@
             });
         });
 
-         $(document).ready(function(){
+        $(document).ready(function(){
             $("#display_2").click(function(){
                 $("#intro_2").toggle()
             });
         });
 
-         function pic(){
+        $(document).ready(function(){
+            $("#display_3").click(function(){
+                $("#intro_3").toggle()
+            });
+        });
+
+        function pic(){
             document.getElementById("picture").style.display="block"
          }
-         function nopic(){
+        function no_pic(){
              document.getElementById("picture").style.display="none"
          }
 
