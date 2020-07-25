@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Something</title>
+</head>
+<body>
+
+<!--check Age-->
+    <input id="age" placeholder="Enter your age" required />
+    <button onclick="checkAge()">submit</button>
+    <p id="msg"></p>
+
+    <hr>
+    <img id="dice" src = "picture/dicegame.jpg" width="200" height="200">
+    <button onclick="Roll()">Roll Dice</button>
+
+    <hr>
+
+    <script>
+        function Roll(){
+            var pic;
+            pic = Math.floor(Math.random()*6)+1;
+            switch (pic) {
+                case 1:
+                    pic = "picture/dice1.png";
+                    break;
+                case 2:
+                    pic = "picture/dice2.png";
+                    break;
+                case 3:
+                    pic = "picture/dice3.png";
+                    break;
+                case 4:
+                    pic = "picture/dice4.png";
+                    break;
+                case 5:
+                    pic = "picture/dice5.png";
+                    break;
+                case 6:
+                    pic = "picture/dice6.png";
+                    break;
+            }
+            document.getElementById("dice").src = pic
+        }
+
+        //check Age
+        function checkAge() {
+            var age,msg;
+            msg =document.getElementById("msg");
+            msg.innerHTML= " ";
+            age = document.getElementById("age").value;
+            val = document.getElementById("age")
+            try{
+                if (!val.checkValidity()){
+                    document.getElementById("msg").innerHTML= val.validationMessage;
+                }
+                if (age =="") throw "empty";
+                if(isNaN(age)) throw "not a number";
+                age = Number(age);
+                if (age < 18) throw "too young";
+                if (age > 18) throw "old enough";
+            }
+            catch (err) {
+                msg.innerHTML = err;
+            }
+            finally {
+                document.getElementById("age").value="";
+            }
+            /*
+            var age, msg;
+            age = Number(document.getElementById("age").value)
+            if(isNaN(age)) {
+                msg = "Input is not a number"
+            }
+            else{
+                msg=(age<18)? "too young":"old enough";
+            }
+            document.getElementById("demo").innerHTML=msg
+            */
+        }
+
+        var date = Date();
+        document.getElementById("date").innerHTML= date
+
+    </script>
+</body>
+</html>

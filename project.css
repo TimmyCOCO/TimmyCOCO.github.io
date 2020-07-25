@@ -6,7 +6,12 @@ body{
     background-size: cover;
 }
 
-p#return{
+#title{
+    position: relative;
+    margin-left: 5px;
+}
+
+p.return{
     display: block;
     text-align: center;
 }
@@ -18,9 +23,10 @@ div#task {
 
 div#topology{
     float:left;
-    width:6%;
 }
 
 #picture{
     display: none;
+    margin-left: 38%;
 }
+

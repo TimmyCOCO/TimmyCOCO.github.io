@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="project.css" type="text/css">
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
-</script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <title>Project</title>
-
 </head>
+
 <body>
-    <h1>Project <button id="display_all"><b>+/-</b></button></h1>
+    <h1 id="title">Project <button id="display_all"><b>+/-</b></button></h1>
+
     <hr>
 
     <h2 onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- Database System <button id="display_1"><b>+/-</b></button></h2>
@@ -45,8 +45,8 @@
             <div id="topology">
                 <button onmouseover="pic()" onmouseleave="no_pic()" >topology</button>
             </div>
-            <div >
-                <img id="picture" src="picture/topology.PNG" height="260" >
+            <div>
+                <img id="picture" src="picture/topology.PNG" height="250" >
             </div>
             <br>
         </fieldset>
@@ -63,31 +63,29 @@
 
     <hr>
     <p class="return"><a href="index.html">back to homepage</a></p>
-    
-<!--Javascript -->
+    <button style="float:right; margin-right:20px;" onclick="window.print()">print this page</button>
+
     <script>
-        //JQuery
+        //all
         $(document).ready(function(){
             $("#display_all").click(function(){
-                $("#intro_1,#intro_2").toggle();
+                $("#intro_1,#intro_2,#intro_3").slideToggle();
+            });
+            $("#display_all").click(function(){
+                $("#title").animate({left: '38%', fontSize:'40px'});
             });
         });
 
-        $(document).ready(function(){
+        //each part
+        $(document).ready(function () {
             $("#display_1").click(function(){
-                $("#intro_1").toggle()
+                $("#intro_1").fadeToggle("slow");
             });
-        });
-
-        $(document).ready(function(){
             $("#display_2").click(function(){
-                $("#intro_2").toggle()
+                $("#intro_2").fadeToggle("slow");
             });
-        });
-
-        $(document).ready(function(){
             $("#display_3").click(function(){
-                $("#intro_3").toggle()
+                $("#intro_3").fadeToggle("slow")
             });
         });
 
