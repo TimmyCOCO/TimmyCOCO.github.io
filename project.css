@@ -9,6 +9,12 @@ body{
     background-size: cover;
 }
 
+#intro{
+    color: midnightblue;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
 h2{
     cursor: pointer;
     margin-left: 10px;
@@ -36,3 +42,5 @@ div#topology{
     display: block;
     margin-left: 42%;
 }
+
+
