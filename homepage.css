@@ -1,12 +1,17 @@
-.title{
-    text-align: center;
+body{
+    margin-left: 15px;
 }
+
 .title p{
     font-size: 3vw;
     font-weight: 600;
+
 }
 
-a {text-decoration: none}
+a {
+    text-decoration: none;
+    color: #000024;
+}
 a:hover{color:red}
 
 body{

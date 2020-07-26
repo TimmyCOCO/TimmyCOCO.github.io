@@ -1,4 +1,7 @@
-a {text-decoration: none}
+a {
+    text-decoration: none;
+    color:dodgerblue;
+}
 a:hover{color:red}
 
 body{
@@ -6,9 +9,13 @@ body{
     background-size: cover;
 }
 
+h2{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 #move{
     position: relative;
-    margin-left: 5px;
 }
 
 div#task {
@@ -27,5 +34,5 @@ div#topology{
 
 #return{
     display: block;
-    text-align: center;
+    margin-left: 42%;
 }

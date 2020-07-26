@@ -8,26 +8,27 @@
 </head>
 
 <body>
-    <h1 id="move">Project <button id="display_all"><b>+/-</b></button></h1>
+    <h2 id="move">Project <button id="display_all"><b>+/-</b></button></h2>
 
     <hr>
 
-    <h2 onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- Database System <button id="display_1"><b>+/-</b></button></h2>
+    <h2 id="display_1" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- Database System </h2>
     <div id="intro_1" style="display: none;">
         <fieldset>
             <h3 >Introduction</h3>
-            <p> A simple database management system using python web application framework - Flask, and MySQL </p>
-            <a href="http://jayden.pythonanywhere.com/Homepage"  target="_blank"> --> Website Link</a>
+            <p> A simple database management system using python web application framework - Flask, and MySQL. </p>
+            <p> Deploying on pythonanywhere.com</p>
+            <a href="http://jayden.pythonanywhere.com/Homepage"  target="_blank"> ==> Website Link</a>
         </fieldset>
     </div>
 
-    <h2 onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- System and Network Administration <button id="display_2"><b>+/-</b></button></h2>
+    <h2 id="display_2" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- System and Network Administration</h2>
     <div id="intro_2" style="display: none;">
         <fieldset>
             <h3>Introduction</h3>
             <p> Deploying a unified Active Directory environment that can
                 be used to control access to network resources while providing
-                various services.   </p>
+                various services. </p>
             <div id="task">
                 <h4>TASKs </h4>
                 <ul>
@@ -43,7 +44,7 @@
                 <p><b>Working Environment: </b>Cloud VMware</p>
             </div>
             <div id="topology">
-                <button onmouseover="pic()" onmouseleave="no_pic()" >topology</button>
+                <button onmouseover="pic_1()" onmouseleave="no_pic_1()" >topology</button>
             </div>
             <div>
                 <img id="picture" src="picture/topology.PNG" height="250" >
@@ -52,17 +53,39 @@
         </fieldset>
     </div>
 
-    <h2 onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Robotics Program <button id="display_3"><b>+/-</b></button></h2>
+    <h2 id="display_3" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Python Robotics Program</h2>
     <div id="intro_3" style="display: none;">
         <fieldset>
             <h3>Introduction</h3>
             <p> A simple python program for Robot. The program can realize user's speech and respond with corresponding speech and Gif emotions.</p>
-            <a href="https://github.com/TimmyCOCO/Python_Robot" target="_blank" > --> Project File Link </a>
+            <a href="https://github.com/TimmyCOCO/Python_Robot" target="_blank" > ==> Project File Link </a>
+        </fieldset>
+    </div>
+
+    <h2 id="display_4" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Networking Configuration</h2>
+    <div id="intro_4" style="display: none;">
+        <fieldset>
+            <h3>Introduction</h3>
+            <p> Configure Cisco Routers and Switches in lab machine room, and remotely finish the configuration tasks.
+                Design a logical topology based on the current physical topology and requirements.</p>
+            <button onclick="pic_2()"> Topology </button>
+            <div>
+            <img id="network" style="display: none;" src="picture/network.png" onclick="no_pic_2()" >
+            </div>
+        </fieldset>
+    </div>
+
+    <h2 id="display_5" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Personal Website</h2>
+    <div id="intro_5" style="display: none;">
+        <fieldset>
+            <h3>Introduction</h3>
+            <p> A personal website that introducing myself and my works. </p>
+            <a href="https://github.com/TimmyCOCO/TimmyCOCO.github.io" target="_blank"> ==> Project File Link</a>
         </fieldset>
     </div>
 
     <hr>
-    <p id="return"><a href="index.html">back to homepage</a></p>
+    <p ><a href="index.html" id="return">back to homepage</a></p>
     <button style="float:right; margin-right:20px;" onclick="window.print()">print this page</button>
 
 
@@ -70,12 +93,11 @@
         //all
         $(document).ready(function(){
             $("#display_all").click(function(){
-                $("#intro_1,#intro_2,#intro_3").slideToggle();
+                $("#intro_1,#intro_2,#intro_3,#intro_4,#intro_5").slideToggle();
             });
-            $("#display_all").click(function(){
-                $("#move").animate({left: '38%', fontSize:'40px'});
-            });
+            $("#move").animate({left: '40%', fontSize:'40px'});
         });
+
 
         //each part
         $(document).ready(function () {
@@ -88,14 +110,29 @@
             $("#display_3").click(function(){
                 $("#intro_3").fadeToggle("slow")
             });
+            $("#display_4").click(function(){
+                $("#intro_4").fadeToggle("slow")
+            });
+             $("#display_5").click(function(){
+                $("#intro_5").fadeToggle("slow")
+            });
         });
 
-        function pic(){
-            document.getElementById("picture").style.display="block"
+        function pic_1(){
+            document.getElementById("picture").style.display="block";
          }
-        function no_pic(){
-             document.getElementById("picture").style.display="none"
+        function no_pic_1(){
+             document.getElementById("picture").style.display="none";
          }
+
+         function pic_2(){
+            $("#network").fadeToggle("slow");
+
+         }
+        function no_pic_2(){
+            $("#network").fadeOut("slow");
+         }
+
 
     </script>
 </body>
