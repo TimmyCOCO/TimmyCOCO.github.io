@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Music Player</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="music.css" type="text/css">
@@ -16,13 +16,13 @@
     <div id="whole">
         <h1 id="title">Music Player</h1>
         <div id="player">
-            <div>
-                <input type="text" v-model="query" @keyup.enter="searchMusic" placeholder="music/person"> <button @click="searchMusic"> search </button>
+            <div id="bar">
+                <input type="text"  v-model="query" @keyup.enter="searchMusic" placeholder="  music/person"> <button @click="searchMusic"> search </button>
             </div>
             <div id="list">
                 <ul style="list-style: none">
                     <li v-for="item in musicList">
-                        <a @click="playMusic(item.id)"><i class="fa fa-hand-o-right"></i></a>
+                        <a @click="playMusic(item.id)"><i id="right_finger" class="fa fa-hand-o-right"></i></a>
                         <b>{{ item.name }}</b>
                         <span id="mv" v-if="item.mvid!=0" @click="playMV(item.mvid)"><i class="fa fa-youtube-play"></i></span>
                     </li>
