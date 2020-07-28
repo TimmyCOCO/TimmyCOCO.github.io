@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Something</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-
-<!--check Age-->
+    <p id="date"></p>
+    <hr>
+    <!--check Age-->
     <input id="age" placeholder="Enter your age" required />
     <button onclick="checkAge()">submit</button>
     <p id="msg"></p>
@@ -17,7 +20,195 @@
 
     <hr>
 
+    <div id="app1">
+        <button @click="decrease">-</button>
+        <p>{{num}}</p>
+        <button @click="increase">+</button>
+    </div>
+    <hr>
+
+    <div id="app2">
+        <button @click="show">show</button>
+        <img v-show="isShow" src = "picture/dicegame.jpg" width="200" height="200">
+    </div>
+
+    <hr>
+    <div id="app3">
+        <button @click="pre" v-show="index != 0"><--</button>
+        <img width=200 height=200 :src="pic[index]" alt="">
+        <button @click="next" v-show="index < pic.length -1">--></button>
+    </div>
+
+    <hr>
+    <div id="app4">
+        <input type="text" v-model="input" @keyup.enter="add"> <b> {{ list.length }}</b>
+        <ul>
+            <li style="list-style: none; margin-left: -30px;"  v-for="(item,index) in list">{{ item }} <button @click="remove(index)">x</button></li>
+            <p @click="clear">clear</p>
+        </ul>
+    </div>
+
+    <hr>
+    <button class="get">GET</button>
+    <button class="post">POST</button>
+
+    <hr>
+    <div id="app5">
+    <button @click="getJoke">Get Joke</button>
+    <p> {{ joke }}</p>
+    </div>
+
+    <hr>
+    <div id="app6">
+        <input v-model="city" @keyup.enter="searchWeather" type="text" placeholder="city name"/>
+        <button @click="searchWeather"> search </button><br>
+        <a @click="changeCity('武汉')">武汉</a>
+        <a @click="changeCity('广州')">广州</a>
+        <a @click="changeCity('上海')">上海</a>
+        <ul>
+            <li v-for="item in weatherList">
+                {{item.type}}
+                {{item. low}}~
+                {{item.high }}
+            </li>
+        </ul>
+    </div>
+
     <script>
+        var app1 = new Vue({
+            el: "#app1",
+            data:{
+                num: 0
+            },
+            methods: {
+                decrease: function () {
+                    this.num -= 1;
+                    if (this.num < 0) {
+                        alert("don't keep clicking");
+                    }
+                },
+                increase: function () {
+                    this.num += 1;
+                },
+            }
+        });
+
+        var app2 = new Vue({
+            el: "#app2",
+            data:{
+                isShow: false
+            },
+            methods:{
+                show:function () {
+                    this.isShow = !this.isShow;
+                }
+            },
+        });
+
+        var app3 = new Vue({
+            el: "#app3",
+            data:{
+                pic: [
+                    'picture/dice1.png', 'picture/dice2.png', 'picture/dice3.png',
+                    'picture/dice4.png', 'picture/dice5.png', 'picture/dice6.png'
+                ],
+                index: 0
+            },
+            methods:{
+                pre:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }
+            }
+        });
+
+        var app4 = new Vue({
+            el: "#app4",
+            data:{
+                list: ["hello","hi"],
+                input: " "
+            },
+            methods:{
+                add:function(){
+                    this.list.push(this.input);
+                },
+                remove:function(index){
+                    this.list.splice(index, 1);
+                },
+                clear:function(){
+                    this.list = [];
+                }
+            },
+        });
+
+        var app5 = new Vue({
+            el: "#app5",
+            data: {
+                 joke: "funny joke will be shown here"
+            },
+            methods: {
+                getJoke:function(){
+                    var that = this;
+                    axios.get("https://autumnfish.cn/api/joke")
+                        .then(function(response){
+                            console.log(response.data);
+                            that.joke = response.data
+                            },
+                        function(err){})
+                }
+            }
+        });
+
+        var app6 = new Vue({
+            el: "#app6",
+            data:{
+                city: "",
+                weatherList:[]
+            },
+            methods: {
+                searchWeather: function () {
+                    //console.log(this.city)
+                    var that = this;
+                    axios.get('http://wthrcdn.etouch.cn/weather_mini?city='
+                        + this.city)
+                        .then(function (response) {
+                            that.weatherList =response.data.data.forecast;
+                        })
+                        .catch(function (err) {
+                        })
+                },
+                changeCity:function(city){
+                    this.city = city;
+                    this.searchWeather();
+                }
+            }
+        });
+
+        // Get
+        document.querySelector(".get").onclick = function(){
+            axios.get("https://autumnfish.cn/api/joke/list?num=3")
+                .then(function(response){
+                    console.log(response);
+                },function(err){
+                    console.log(err);
+                })
+        };
+        // Post
+        document.querySelector(".post").onclick=function(){
+            axios.post("https://autumnfish.cn/api/user/reg",{username:"jack"})
+                .then(function(response){
+                    console.log(response)
+                })
+        };
+
+
+
+
+
+
+        //Javascript
         function Roll(){
             var pic;
             pic = Math.floor(Math.random()*6)+1;
@@ -82,6 +273,8 @@
 
         var date = Date();
         document.getElementById("date").innerHTML= date
+
+
 
     </script>
 </body>

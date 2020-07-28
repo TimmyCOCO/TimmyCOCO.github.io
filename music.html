@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="music.css" type="text/css">
+</head>
+<body>
+    <div>
+        <a id="homepage" href="index.html">Return</a>
+    </div>
+    <br>
+    <div id="whole">
+        <h1 id="title">Music Player</h1>
+        <div id="player">
+            <div>
+                <input type="text" v-model="query" @keyup.enter="searchMusic" placeholder="music/person"> <button @click="searchMusic"> search </button>
+            </div>
+            <div id="list">
+                <ul style="list-style: none">
+                    <li v-for="item in musicList">
+                        <a @click="playMusic(item.id)"><i class="fa fa-hand-o-right"></i></a>
+                        <b>{{ item.name }}</b>
+                        <span id="mv" v-if="item.mvid!=0" @click="playMV(item.mvid)"><i class="fa fa-youtube-play"></i></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="img" :class="{playing:isPlaying}">
+                <img :src="musicCover">
+            </div>
+
+            <div id="comment">
+                <dl v-for="item in hotComments">
+                    <dt>
+                    <img id="comment_img" :src="item.user.avatarUrl" alt=""  height="70px">
+                    </dt>
+                    <br>
+                    <dd>{{ item.user.nickname }}</dd>
+                    <dd>{{ item.content }}</dd>
+                    <hr>
+                </dl>
+            </div>
+            <br>
+            <div id="footer">
+                <audio ref="audio" :src="musicUrl" controls autoplay ></audio>
+            </div>
+            <br>
+            <div v-show="isShow">
+
+                <video :src="mvUrl" controls autoplay width="70%" height="70%"></video>
+                <div id="mask" @click="hide"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var app = new Vue({
+            el: "#player",
+            data:{
+                query:"",
+                musicList: [],
+                musicUrl:"",
+                musicCover: "picture/music_disk.jpg",
+                hotComments:[],
+                isShow: false,
+                mvUrl:"",
+                //isPlaying:false,
+            },
+            methods:{
+                searchMusic:function(){
+                    var that = this;
+                    // Music name list
+                    axios.get("https://autumnfish.cn/search?keywords="+this.query)
+                        .then(function(response){
+                            //console.log(response);
+                            that.musicList = response.data.result.songs;
+                        },function(err){})
+                },
+
+                playMusic:function(musicId){
+                    var that = this;
+                    // Music playing
+                    axios.get("https://autumnfish.cn/song/url?id="+musicId)
+                        .then(function(response){
+                            //console.log(musicId);
+                            //console.log(response);
+                            //console.log(response.data.data[0].url);
+                            that.musicUrl=response.data.data[0].url;
+                    },function(err){});
+
+                    // Music cover
+                    axios.get("https://autumnfish.cn/song/detail?ids="+musicId)
+                        .then(function(response){
+                            //console.log(response.data.songs[0].al.picUrl);
+                            that.musicCover = response.data.songs[0].al.picUrl;
+                        }, function(err){});
+
+                    // Comment
+                    axios.get("https://autumnfish.cn/comment/hot?type=0&id="+musicId)
+                        .then(function(response){
+                            //console.log(response);
+                            //console.log(response.data.hotComments);
+                            that.hotComments= response.data.hotComments
+                        },function(err){});
+                },
+
+                playMV:function(mvid){
+                    var that =this;
+                    axios.get("https://autumnfish.cn/mv/url?id="+ mvid)
+                        .then(function(response){
+                            //console.log(response.data.data.url);
+                            that.isShow=true;
+                            that.mvUrl = response.data.data.url;
+                        },function(err){})
+                },
+
+                //pauseMV:function(){},
+
+                hide:function(){
+                  this.isShow= false;
+                  this.mvUrl ="";
+                },
+
+                /*
+                play:function(){
+                    this.isPlaying =true;
+                },
+                pause:function(){
+                    this.isPlaying = false;
+                },
+                */
+            }
+        })
+    </script>
+
+</body>
+</html>
