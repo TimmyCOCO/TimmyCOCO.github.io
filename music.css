@@ -18,6 +18,9 @@ i {
     border: 2px solid #c5464a;
     border-radius: 20px;
     font-size: 18px;
+    outline:none;
+    padding-left:10px;
+    width: 200px;
 }
 
 #bar button{
