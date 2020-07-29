@@ -4,6 +4,7 @@ body {
     height: 100%;
     width: 100%;
     color: grey;
+    overflow: scroll;
 }
 
 #title{
@@ -18,7 +19,7 @@ i {
 #bar input{
     border: 2px solid #c5464a;
     border-radius: 20px;
-    font-size: 18px;
+    font-size: 20px;
     outline:none;
     padding-left:10px;
     width: 200px;
@@ -38,7 +39,7 @@ img{
     width:33.3%;
     margin-top: 100px;
     margin-bottom: 20px;
-    border-radius: 50%;]
+    border-radius: 50%;
 }
 
 #list{
@@ -46,6 +47,8 @@ img{
     text-align: left;
     width: 28.3%;
     margin-left: 5%;
+    overflow: auto;
+    height: 602px;
 }
 
 #comment{
@@ -60,8 +63,13 @@ img{
 }
 
 #comment::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 4px;
+    height: 4px;
+}
+
+#list::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
 }
 
 #comment_img{
@@ -69,11 +77,12 @@ img{
 }
 
 #footer{
-    float:bottom;
+    float: bottom;
+    width: 100%;
 }
 
-#audio{
-    outline:none;
+#audio {
+    outline: none;
 }
 
 #right_finger{
@@ -113,6 +122,3 @@ video{
     color: gold;
 }
 
-#title:hover{
-    color: orangered;
-}
