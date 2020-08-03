@@ -1,3 +1,3 @@
 # TimmyCOCO.github.io
 
-gtweb.cf <-- my domain, but it will reforward to TimmyCOCO.github.io
+use gtweb.cf will redirect to TimmyCOCO.github.io
