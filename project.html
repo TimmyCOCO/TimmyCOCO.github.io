@@ -12,6 +12,15 @@
 
     <p id="intro"> Self-learning for Kali Linux, preparing for CompTIA network+ certificate</p>
     <hr>
+	
+	<h2 id="display_0" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Personal Website(current site)</h2>
+    <div id="intro_0" style="display: none;">
+        <fieldset>
+            <h3>Introduction</h3>
+            <p> A personal website to introduce myself and my project. </p>
+            <a href="https://github.com/TimmyCOCO/TimmyCOCO.github.io" target="_blank"> ==> Project File Link</a>
+        </fieldset>
+    </div>
 
     <h2 id="display_1" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'">- Database System </h2>
     <div id="intro_1" style="display: none;">
@@ -31,7 +40,7 @@
                 be used to control access to network resources while providing
                 various services. </p>
             <div id="task">
-                <h4>TASKs </h4>
+                <h4>TASKS </h4>
                 <ul>
                     <li>Basic server setup</li>
                     <li>Active directory forest and domain setup</li>
@@ -54,11 +63,11 @@
         </fieldset>
     </div>
 
-    <h2 id="display_3" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Python Robotics Program</h2>
+    <h2 id="display_3" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Python Robotics Program Demo</h2>
     <div id="intro_3" style="display: none;">
         <fieldset>
             <h3>Introduction</h3>
-            <p> A simple python program for Robot. The program can realize user's speech and respond with corresponding speech and Gif emotions.</p>
+            <p> A python program for Robot. The program can realize user's speech and respond with corresponding speech and Gif emotions.</p>
             <a href="https://github.com/TimmyCOCO/Python_Robot" target="_blank" > ==> Project File Link </a>
         </fieldset>
     </div>
@@ -76,14 +85,7 @@
         </fieldset>
     </div>
 
-    <h2 id="display_5" onmousemove="this.style.color='#66ff66'" onmouseleave="this.style.color='black'"> - Personal Website(Current site)</h2>
-    <div id="intro_5" style="display: none;">
-        <fieldset>
-            <h3>Introduction</h3>
-            <p> A personal website that introducing myself and my works. </p>
-            <a href="https://github.com/TimmyCOCO/TimmyCOCO.github.io" target="_blank"> ==> Project File Link</a>
-        </fieldset>
-    </div>
+    
 
     <hr>
     <p ><a href="index.html" id="return">back to homepage</a></p>
@@ -94,7 +96,7 @@
         //all
         $(document).ready(function(){
             $("#display_all").click(function(){
-                $("#intro_1,#intro_2,#intro_3,#intro_4,#intro_5").slideToggle();
+                $("#intro_0,#intro_1,#intro_2,#intro_3,#intro_4").slideToggle();
             });
             $("#move").animate({left: '40%', fontSize:'40px'});
         });
@@ -102,6 +104,9 @@
 
         //each part
         $(document).ready(function () {
+			$("#display_0").click(function(){
+                $("#intro_0").fadeToggle("slow")
+            });
             $("#display_1").click(function(){
                 $("#intro_1").fadeToggle("slow");
             });
@@ -114,9 +119,7 @@
             $("#display_4").click(function(){
                 $("#intro_4").fadeToggle("slow")
             });
-             $("#display_5").click(function(){
-                $("#intro_5").fadeToggle("slow")
-            });
+             
         });
 
         function pic_1(){
