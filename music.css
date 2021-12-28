@@ -125,9 +125,10 @@ video{
 #homepage{
     float:left;
     text-decoration: none;
+	color: gold;
 }
 
 #homepage:hover {
-    color: gold;
+    color: yellow;
 }
 
