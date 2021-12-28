@@ -1,4 +1,4 @@
-# Static Website: 
+# Static Website
 
 TimmyCOCO.github.io
 
