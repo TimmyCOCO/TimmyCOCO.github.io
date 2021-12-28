@@ -1,3 +1,6 @@
-# Personal Website: 
+# Static Website: 
 
 TimmyCOCO.github.io
+
+
+
