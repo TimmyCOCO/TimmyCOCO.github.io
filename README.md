@@ -1,3 +1,3 @@
-# Personal Website: gtweb.cf
+# Personal Website: 
 
---> This will redirect to TimmyCOCO.github.io
+TimmyCOCO.github.io
